@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invoice Generation Form</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Invoice Generation Form</h2>
+        <form id="invoiceForm" enctype="multipart/form-data">
+            <fieldset>
+                <legend>Seller Details</legend>
+                <label for="sellerName">Name:</label>
+                <input type="text" id="sellerName" name="sellerName" required>
+                <label for="sellerAddress">Address:</label>
+                <input type="text" id="sellerAddress" name="sellerAddress" required>
+                <label for="sellerCity">City:</label>
+                <input type="text" id="sellerCity" name="sellerCity" required>
+                <label for="sellerState">State:</label>
+                <input type="text" id="sellerState" name="sellerState" required>
+                <label for="sellerPincode">Pincode:</label>
+                <input type="text" id="sellerPincode" name="sellerPincode" required>
+                <label for="sellerPanNo">PAN No:</label>
+                <input type="text" id="sellerPanNo" name="sellerPanNo" required>
+                <label for="sellerGstRegistrationNo">GST Registration No:</label>
+                <input type="text" id="sellerGstRegistrationNo" name="sellerGstRegistrationNo" required>
+            </fieldset>
+
+            <fieldset>
+                <legend>Order Details</legend>
+                <label for="orderNo">Order No:</label>
+                <input type="text" id="orderNo" name="orderNo" required>
+                <label for="orderDate">Order Date:</label>
+                <input type="date" id="orderDate" name="orderDate" required>
+            </fieldset>
+
+            <fieldset>
+                <legend>Invoice Details</legend>
+                <label for="invoiceNo">Invoice No:</label>
+                <input type="text" id="invoiceNo" name="invoiceNo" required>
+                <label for="invoiceDate">Invoice Date:</label>
+                <input type="date" id="invoiceDate" name="invoiceDate" required>
+                <label for="reverseCharge">Reverse Charge:</label>
+                <input type="checkbox" id="reverseCharge" name="reverseCharge">
+            </fieldset>
+
+            <fieldset>
+                <legend>Billing Address</legend>
+                <label for="billingName">Name:</label>
+                <input type="text" id="billingName" name="billingName" required>
+                <label for="billingAddress">Address:</label>
+                <input type="text" id="billingAddress" name="billingAddress" required>
+                <label for="billingCity">City:</label>
+                <input type="text" id="billingCity" name="billingCity" required>
+                <label for="billingState">State:</label>
+                <input type="text" id="billingState" name="billingState" required>
+                <label for="billingPincode">Pincode:</label>
+                <input type="text" id="billingPincode" name="billingPincode" required>
+                <label for="billingStateUTCode">State UT Code:</label>
+                <input type="text" id="billingStateUTCode" name="billingStateUTCode" required>
+            </fieldset>
+
+            <fieldset>
+                <legend>Shipping Address</legend>
+                <label for="shippingName">Name:</label>
+                <input type="text" id="shippingName" name="shippingName" required>
+                <label for="shippingAddress">Address:</label>
+                <input type="text" id="shippingAddress" name="shippingAddress" required>
+                <label for="shippingCity">City:</label>
+                <input type="text" id="shippingCity" name="shippingCity" required>
+                <label for="shippingState">State:</label>
+                <input type="text" id="shippingState" name="shippingState" required>
+                <label for="shippingPincode">Pincode:</label>
+                <input type="text" id="shippingPincode" name="shippingPincode" required>
+                <label for="shippingStateUTCode">State UT Code:</label>
+                <input type="text" id="shippingStateUTCode" name="shippingStateUTCode" required>
+            </fieldset>
+
+            <fieldset>
+                <legend>Items</legend>
+                <div id="itemsContainer">
+                    <div class="itemRow">
+                        <label for="itemDescription">Description:</label>
+                        <input type="text" class="itemDescription" name="itemDescription[]" required>
+                        <label for="itemUnitPrice">Unit Price:</label>
+                        <input type="number" step="0.01" class="itemUnitPrice" name="itemUnitPrice[]" required>
+                        <label for="itemQuantity">Quantity:</label>
+                        <input type="number" class="itemQuantity" name="itemQuantity[]" required>
+                        <label for="itemDiscount">Discount:</label>
+                        <input type="number" step="0.01" class="itemDiscount" name="itemDiscount[]" required>
+                        <button type="button" onclick="removeItem(this)">Remove</button>
+                    </div>
+                </div>
+                <button type="button" onclick="addItem()">Add Item</button>
+            </fieldset>
+
+            <fieldset>
+                <legend>Place of Supply</legend>
+                <label for="placeOfSupply">Place of Supply:</label>
+                <input type="text" id="placeOfSupply" name="placeOfSupply" required>
+                <label for="placeOfDelivery">Place of Delivery:</label>
+                <input type="text" id="placeOfDelivery" name="placeOfDelivery" required>
+            </fieldset>
+
+            <fieldset>
+                <legend>Logo and Signature</legend>
+                <label for="logo">Logo:</label>
+                <input type="file" id="logo" name="logo" accept=".jpg, .jpeg, .png" required>
+                <label for="signature">Signature:</label>
+                <input type="file" id="signature" name="signature" accept=".jpg, .jpeg, .png" required>
+            </fieldset>
+
+            <button type="submit">Generate Invoice</button>
+        </form>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
